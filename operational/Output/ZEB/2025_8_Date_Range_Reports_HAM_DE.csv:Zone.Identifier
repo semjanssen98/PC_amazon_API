@@ -1,0 +1,4 @@
+[ZoneTransfer]
+ZoneId=3
+ReferrerUrl=https://sellercentral.amazon.de/payments/reports-repository/ref=xx_rrepo_dnav_xx
+HostUrl=https://sellercentral.amazon.de/payments/reports/api/download-report?reportId=93a42e71-bd27-3ae7-b5c0-de54e7cc6afe
