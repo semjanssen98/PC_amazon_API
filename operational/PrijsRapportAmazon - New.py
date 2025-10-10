@@ -32,10 +32,10 @@ import openpyxl
 # 1. User‑editable parameters
 # ---------------------------------------------------------------------------
 
-MONTH:   str = "August"  # full month name, e.g. "June"
+MONTH:   str = "September"  # full month name, e.g. "June"
 YEAR:    str = "2025"
-CLIENT:  str = "MEG" # client prefix, e.g. "PAT"
-MARKETS: List[str] = ["FR", "DE", "IT", "ES", "NL", "UK"]   # marketplace 2‑letter codes
+CLIENT:  str = "PAT" # client prefix, e.g. "PAT"
+MARKETS: List[str] = ["DE", "FR", "NL"]   # marketplace 2‑letter codes
 
 BASE_DIR = Path("/home/semja/github/personal/PC_amazon_API/operational")
 

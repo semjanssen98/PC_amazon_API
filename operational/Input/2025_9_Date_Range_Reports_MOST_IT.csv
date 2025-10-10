@@ -1,0 +1,8 @@
+﻿"Include transazioni relative sia a Vendita su Amazon sia Logistica di Amazon."
+"Tutti gli importi sono espressi in EUR, se non diversamente specificato."
+"Definizioni:"
+"Imposta sulle vendite riscossa: include l'imposta sulle vendite riscossa dagli acquirenti per la vendita, la spedizione e la confezione regalo dei prodotti."
+"Commissioni di vendita: Include commissioni variabili di chiusura e concessioni di procacciamento d'affari"
+"Altri costi relativi alle transazioni: includono costi di chargeback per la spedizione e trattenute sulla spedizione."
+"Altro: include l'importo delle transazioni non relative all'ordine. Per maggiori informazioni, consulta le colonne ""Tipo"" e ""Descrizione"" per ogni numero d'ordine."
+"Data/Ora:","Numero pagamento","Tipo","Numero ordine","SKU","Descrizione","Quantità","Marketplace","Gestione","Città di provenienza dell'ordine","Provincia di provenienza dell'ordine","CAP dell'ordine","modello di riscossione delle imposte","Vendite","imposta sulle vendite dei prodotti","Accrediti per le spedizioni","imposta accrediti per le spedizioni","Accrediti per confezioni regalo","imposta sui crediti confezione regalo","Sconti promozionali","imposta sugli sconti promozionali","trattenuta IVA del marketplace","Commissioni di vendita","Costi del servizio Logistica di Amazon","Altri costi relativi alle transazioni","Altro","totale"
