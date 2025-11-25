@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""Amazon payment reports → outputdata.xlsx
-================================================
-
-Scans every *.csv in COUNTRY_DIRS, translates/merges, writes a single
-workbook (outputdata.xlsx) and prints a reconciliation table.
-"""
 from __future__ import annotations
 
 from pathlib import Path
@@ -30,16 +23,12 @@ def _win_to_wsl(p: str) -> str:
 
 # --- USER SETTINGS (gebruik _win_to_wsl voor Windows-paden) ---
 COUNTRY_DIRS = {
-    "DE": _win_to_wsl(r"C:\Users\semja\Platform Control\Platform Control - Overzichten - Documenten\General\02. Partners\03. Animal Platform Control\09. Analyses\AmazonWinstrapportage\DE"),
-    "FR": _win_to_wsl(r"C:\Users\semja\Platform Control\Platform Control - Overzichten - Documenten\General\02. Partners\03. Animal Platform Control\09. Analyses\AmazonWinstrapportage\FR"),
-    "ES": _win_to_wsl(r"C:\Users\semja\Platform Control\Platform Control - Overzichten - Documenten\General\02. Partners\03. Animal Platform Control\09. Analyses\AmazonWinstrapportage\ES"),
-    "IT": _win_to_wsl(r"C:\Users\semja\Platform Control\Platform Control - Overzichten - Documenten\General\02. Partners\03. Animal Platform Control\09. Analyses\AmazonWinstrapportage\IT"),
-    "NL": _win_to_wsl(r"C:\Users\semja\Platform Control\Platform Control - Overzichten - Documenten\General\02. Partners\03. Animal Platform Control\09. Analyses\AmazonWinstrapportage\NL"),
-    "BE": _win_to_wsl(r"C:\Users\semja\Platform Control\Platform Control - Overzichten - Documenten\General\02. Partners\03. Animal Platform Control\09. Analyses\AmazonWinstrapportage\BE"),
+    "DE": _win_to_wsl(r"C:\Users\semja\Platform Control\Platform Control - Overzichten - Documenten\General\02. Partners\09. Happybed\09. Analyses\AmazonWinstrapportage\DE"),
+    "FR": _win_to_wsl(r"C:\Users\semja\Platform Control\Platform Control - Overzichten - Documenten\General\02. Partners\09. Happybed\09. Analyses\AmazonWinstrapportage\FR"),
+    "NL": _win_to_wsl(r"C:\Users\semja\Platform Control\Platform Control - Overzichten - Documenten\General\02. Partners\09. Happybed\09. Analyses\AmazonWinstrapportage\NL")
 }
-
 ROOT_OUTPUT = Path(_win_to_wsl(
-    r"C:\Users\semja\Platform Control\Platform Control - Overzichten - General\02. Partners\03. Animal Platform Control\09. Analyses\AmazonWinstrapportage"
+    r"C:\Users\semja\Platform Control\Platform Control - Overzichten - Documenten\General\02. Partners\09. Happybed\09. Analyses\AmazonWinstrapportage"
 ))
 
 TRANSLATION_WB = Path(
@@ -162,9 +151,52 @@ COL_MAP, PAY_MAP = build_translation_dicts(TRANSLATION_WB)
 # 4.  Helpers
 # ---------------------------------------------------------------------------
 
-parse_num = lambda s: 0.0 if not s else float(
-    s.replace(_EU_NBSP, "").replace(" ", "").replace(".", "").replace(",", ".")
-)
+def parse_num(value) -> float:
+    """Parse EU/US formatted strings like '1.234,56' or '1,234.56' into floats."""
+    if value in (None, ""):
+        return 0.0
+    if isinstance(value, (int, float)):
+        return float(value)
+
+    s = str(value).strip()
+    if not s:
+        return 0.0
+
+    s = (
+        s.replace(_EU_NBSP, "")
+         .replace(" ", "")
+         .replace("€", "")
+         .replace("−", "-")
+    )
+
+    # keep only digits, minus, commas and dots
+    s = re.sub(r"[^0-9,.\-]", "", s)
+    if not s or s in {"-", ".", ",", "-.", "-,"}:
+        return 0.0
+
+    sign = -1 if s.startswith("-") else 1
+    if s[0] in "+-":
+        s = s[1:]
+    s = s.replace("+", "")
+
+    if not s:
+        return 0.0
+
+    last_comma = s.rfind(",")
+    last_dot = s.rfind(".")
+    decimal_pos = max(last_comma, last_dot)
+
+    if decimal_pos != -1:
+        int_part = re.sub(r"[.,]", "", s[:decimal_pos]) or "0"
+        frac_part = re.sub(r"[.,]", "", s[decimal_pos + 1:])
+        number_str = f"{int_part}.{frac_part}" if frac_part else int_part
+    else:
+        number_str = re.sub(r"[.,]", "", s)
+
+    if not number_str:
+        return 0.0
+
+    return sign * float(number_str)
 fmt_eu = lambda v: ("- " if v < 0 else "") + f"€ {abs(v):,.2f}".replace(",", " ").replace(".", ",")
 
 def norm_date(text: str) -> str:
