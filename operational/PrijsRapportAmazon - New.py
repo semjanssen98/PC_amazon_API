@@ -16,7 +16,7 @@ import openpyxl
 # Optionele override (laat op None voor autodetectie)
 # ------------------------------------------------------------
 FORCE_YEAR: Optional[int] = 2025          # bijv. 2025
-FORCE_MONTH_ABBR: Optional[str] = 'Oct'   # bijv. "Oct" of "Okt"
+FORCE_MONTH_ABBR: Optional[str] = 'Nov'   # bijv. "Oct" of "Okt"
 
 # ------------------------------------------------------------
 # 0) Helpers voor paden (Windows → WSL) en instellingen
@@ -37,20 +37,20 @@ def _win_to_wsl(p: str) -> str:
 
 # --- USER SETTINGS ---
 ROOT = Path(_win_to_wsl(
-    r"C:\Users\semja\Platform Control\Platform Control - Overzichten - Documenten\General\02. Partners\10. Zebra & Friends\04. Analyses\AmazonWinstrapportage"
+    r"C:\Users\semja\Platform Control\Platform Control - Overzichten - Documenten\General\02. Partners\15. Most Models\09. Analyses\AmazonWinstrapportage"
 ))
 
 COUNTRY_DIRS: Dict[str, Path] = {
     "DE": ROOT / "DE",
     "FR": ROOT / "FR",
-    # "ES": ROOT / "ES",
-    # "IT": ROOT / "IT",
-    # "NL": ROOT / "NL",
-    # "BE": ROOT / "BE",
-    # "UK": ROOT / "UK",
-    # "SE": ROOT / "SE",
-    # "IE": ROOT / "IE",
-    "PL": ROOT / "PL"
+    "ES": ROOT / "ES",
+    "IT": ROOT / "IT",
+    "NL": ROOT / "NL",
+    "BE": ROOT / "BE",
+    "UK": ROOT / "UK",
+    "SE": ROOT / "SE",
+    "IE": ROOT / "IE",
+    "PL": ROOT / "PL" 
 }
 
 # Gebruik liefst het geüpdatete bestand dat we net maakten
