@@ -37,7 +37,7 @@ def _win_to_wsl(p: str) -> str:
 
 # --- USER SETTINGS ---
 ROOT = Path(_win_to_wsl(
-    r"C:\Users\semja\Platform Control\Platform Control - Overzichten - Documenten\General\02. Partners\15. Most Models\09. Analyses\AmazonWinstrapportage"
+    r"C:\Users\semja\Platform Control\Platform Control - Overzichten - Documenten\General\02. Partners\03. Animal Platform Control\09. Analyses\AmazonWinstrapportage"
 ))
 
 COUNTRY_DIRS: Dict[str, Path] = {
@@ -47,15 +47,15 @@ COUNTRY_DIRS: Dict[str, Path] = {
     "IT": ROOT / "IT",
     "NL": ROOT / "NL",
     "BE": ROOT / "BE",
-    "UK": ROOT / "UK",
-    "SE": ROOT / "SE",
-    "IE": ROOT / "IE",
-    "PL": ROOT / "PL" 
+    # "UK": ROOT / "UK",
+    # "SE": ROOT / "SE",
+    # "IE": ROOT / "IE",
+    # "PL": ROOT / "PL" 
 }
 
 # Gebruik liefst het geüpdatete bestand dat we net maakten
 TRANSLATION_WB = Path(
-    r"/home/semja/github/personal/PC_amazon_API/operational/Payments report link vertalingen FIXED.xlsx"
+    r"/home/semja/github/personal/PC_amazon_API/operational/Payments report link vertalingen FIXED_with_SE.xlsx"
 )
 
 OUTPUT_FILE = ROOT / "invoicedata.xlsx"

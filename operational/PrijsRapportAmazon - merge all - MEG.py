@@ -31,16 +31,17 @@ def _win_to_wsl(p: str) -> str:
 
 # --- USER SETTINGS (gebruik _win_to_wsl voor Windows-paden) ---
 COUNTRY_DIRS = {
-    "DE": _win_to_wsl(r"C:\Users\semja\Platform Control\Platform Control - Overzichten - Documenten\General\02. Partners\07. PAT Europe\09. Analyses\AmazonWinstrapportage\DE"),
-    "FR": _win_to_wsl(r"C:\Users\semja\Platform Control\Platform Control - Overzichten - Documenten\General\02. Partners\07. PAT Europe\09. Analyses\AmazonWinstrapportage\FR"),
-    "ES": _win_to_wsl(r"C:\Users\semja\Platform Control\Platform Control - Overzichten - Documenten\General\02. Partners\07. PAT Europe\09. Analyses\AmazonWinstrapportage\ES"),
-    "IT": _win_to_wsl(r"C:\Users\semja\Platform Control\Platform Control - Overzichten - Documenten\General\02. Partners\07. PAT Europe\09. Analyses\AmazonWinstrapportage\IT"),
-    "NL": _win_to_wsl(r"C:\Users\semja\Platform Control\Platform Control - Overzichten - Documenten\General\02. Partners\07. PAT Europe\09. Analyses\AmazonWinstrapportage\NL"),
-    "BE": _win_to_wsl(r"C:\Users\semja\Platform Control\Platform Control - Overzichten - Documenten\General\02. Partners\07. PAT Europe\09. Analyses\AmazonWinstrapportage\BE"),
+    "DE": _win_to_wsl(r"C:\Users\semja\Platform Control\Platform Control - Overzichten - Documenten\General\02. Partners\11. Megaprojects\09. Analyses\AmazonWinstrapportage\DE"),
+    "FR": _win_to_wsl(r"C:\Users\semja\Platform Control\Platform Control - Overzichten - Documenten\General\02. Partners\11. Megaprojects\09. Analyses\AmazonWinstrapportage\FR"),
+    "ES": _win_to_wsl(r"C:\Users\semja\Platform Control\Platform Control - Overzichten - Documenten\General\02. Partners\11. Megaprojects\09. Analyses\AmazonWinstrapportage\ES"),
+    "IT": _win_to_wsl(r"C:\Users\semja\Platform Control\Platform Control - Overzichten - Documenten\General\02. Partners\11. Megaprojects\09. Analyses\AmazonWinstrapportage\IT"),
+    "NL": _win_to_wsl(r"C:\Users\semja\Platform Control\Platform Control - Overzichten - Documenten\General\02. Partners\11. Megaprojects\09. Analyses\AmazonWinstrapportage\NL"),
+    "BE": _win_to_wsl(r"C:\Users\semja\Platform Control\Platform Control - Overzichten - Documenten\General\02. Partners\11. Megaprojects\09. Analyses\AmazonWinstrapportage\BE"),
+    "UK": _win_to_wsl(r"C:\Users\semja\Platform Control\Platform Control - Overzichten - Documenten\General\02. Partners\11. Megaprojects\09. Analyses\AmazonWinstrapportage\UK")
 }
 
 ROOT_OUTPUT = Path(_win_to_wsl(
-    r"C:\Users\semja\Platform Control\Platform Control - Overzichten - Documenten\General\02. Partners\07. PAT Europe\09. Analyses\AmazonWinstrapportage"
+    r"C:\Users\semja\Platform Control\Platform Control - Overzichten - Documenten\General\02. Partners\11. Megaprojects\09. Analyses\AmazonWinstrapportage"
 ))
 
 TRANSLATION_WB = Path(
