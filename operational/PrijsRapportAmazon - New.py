@@ -16,7 +16,7 @@ import openpyxl
 # Optionele override (laat op None voor autodetectie)
 # ------------------------------------------------------------
 FORCE_YEAR: Optional[int] = 2025          # bijv. 2025
-FORCE_MONTH_ABBR: Optional[str] = 'Nov'   # bijv. "Oct" of "Okt"
+FORCE_MONTH_ABBR: Optional[str] = 'Dec'   # bijv. "Oct" of "Okt"
 
 # ------------------------------------------------------------
 # 0) Helpers voor paden (Windows → WSL) en instellingen
@@ -37,7 +37,7 @@ def _win_to_wsl(p: str) -> str:
 
 # --- USER SETTINGS ---
 ROOT = Path(_win_to_wsl(
-    r"C:\Users\semja\Platform Control\Platform Control - Overzichten - Documenten\General\02. Partners\03. Animal Platform Control\09. Analyses\AmazonWinstrapportage"
+    r"C:\Users\semja\Platform Control\Platform Control - Overzichten - General\02. Partners\03. Animal Platform Control\09. Analyses\AmazonWinstrapportage"
 ))
 
 COUNTRY_DIRS: Dict[str, Path] = {
@@ -55,7 +55,7 @@ COUNTRY_DIRS: Dict[str, Path] = {
 
 # Gebruik liefst het geüpdatete bestand dat we net maakten
 TRANSLATION_WB = Path(
-    r"/home/semja/github/personal/PC_amazon_API/operational/Payments report link vertalingen FIXED_with_SE.xlsx"
+    r"/home/semja/github/PC_amazon_API/operational/Payments report link vertalingen FIXED_with_SE.xlsx"
 )
 
 OUTPUT_FILE = ROOT / "invoicedata.xlsx"
